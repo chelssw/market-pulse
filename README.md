@@ -36,7 +36,7 @@ Users open the dashboard, add instruments to their watchlist (BTC, ETH, etc.), s
 Technical Architecture
 
 The system is built as four independent microservices sharing a database and message bus:
-
+```
 ┌───────────┬──────────────────────────────────────────────────────────┐
 │ Service   │ Responsibility                                           │
 ├───────────┼──────────────────────────────────────────────────────────┤
@@ -52,6 +52,7 @@ The system is built as four independent microservices sharing a database and mes
 │ Web       │ Next.js frontend — charts, watchlist, alert management   │
 │ Dashboard │                                                          │
 └───────────┴──────────────────────────────────────────────────────────┘
+```
 
 All services share a PostgreSQL database (via TypeORM) and communicate asynchronously through Redis + BullMQ. This means each service can be scaled, restarted, or updated independently without taking the others down.
 
@@ -60,7 +61,7 @@ All services share a PostgreSQL database (via TypeORM) and communicate asynchron
 Why This Stack?
 
 Every technology choice maps directly to industry demand:
-
+```
 ┌─────────────────┬────────────────────────────────────────────────────┐
 │ Technology      │ Why It's Here                                      │
 ├─────────────────┼────────────────────────────────────────────────────┤
@@ -82,4 +83,5 @@ Every technology choice maps directly to industry demand:
 ├─────────────────┼────────────────────────────────────────────────────┤
 │ Docker + AWS    │ Containerised, deployable to a live public URL     │
 └─────────────────┴────────────────────────────────────────────────────┘
+```
 
